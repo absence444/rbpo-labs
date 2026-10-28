@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:museum;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  flyway:
+    user: sa
+    password: ""
+    locations: classpath:db/migration
+
+museum:
+  security:
+    # В тестах снижаем стоимость BCrypt, чтобы ускорить прогон.
+    bcrypt-strength: 4
+    admin:
+      username: admin
+      email: admin@museum.test
+      password: "Str0ng-Muse#Key"

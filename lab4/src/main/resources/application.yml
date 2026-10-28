@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: "24067"
+  config:
+    # Локальные секреты берутся из файла .env (см. .env.example) или из переменных окружения.
+    import: "optional:file:.env[.properties]"
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:museum}
+    username: ${DB_APP_USER}
+    password: ${DB_APP_PASSWORD}
+  flyway:
+    # Миграции выполняет владелец схемы, приложение работает от пользователя с ограниченными правами.
+    user: ${DB_OWNER_USER}
+    password: ${DB_OWNER_PASSWORD}
+    # db/seed — демонстрационные данные, db/postgres — настройка прав (только для PostgreSQL).
+    locations: classpath:db/migration,classpath:db/seed,classpath:db/postgres
+    placeholders:
+      app_user: ${DB_APP_USER}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+museum:
+  security:
+    bcrypt-strength: 12
+    max-failed-attempts: 5
+    lock-duration: 15m
+    admin:
+      username: ${ADMIN_USERNAME:}
+      email: ${ADMIN_EMAIL:}
+      password: ${ADMIN_PASSWORD:}
+
+server:
+  error:
+    include-stacktrace: never
+    include-message: never

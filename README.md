@@ -5,3 +5,4 @@
 | 1 | Подготовка репозитория: Spring Boot + Maven, REST-контроллер с двумя GET-эндпоинтами | [lab1](lab1) |
 | 2 | Вариант 9 «Музейные выставки»: CRUD REST API для 5 сущностей | [lab2](lab2) |
 | 3 | PostgreSQL, связи и ограничения, пользователь БД с ограниченными правами, 6 бизнес-операций, коллекция Postman | [lab3](lab3) |
+| 4 | Spring Security: HTTP Basic, CSRF, регистрация с BCrypt, роли ADMIN/CURATOR/VISITOR, контекстные права, блокировки | [lab4](lab4) |
